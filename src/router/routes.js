@@ -6,8 +6,8 @@ export default [
     },
     {
         path: '/pages1',
-        name: 'HellloWord',
-        component: () => import('../components/HelloWorld'),
+        name: 'HellloWord1_1',
+        component: () => import('../components/HelloWorld1_1'),
     },
     {
         path: '/pages2',
