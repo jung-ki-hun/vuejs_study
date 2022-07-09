@@ -17,7 +17,15 @@
       v-for = "(item,index) in noteText"
       :key = "index">      
         <!-- <li :class="{ 'red':index % 2 === 0 ? 'red':'','bule':index % 2 !== 0 ? 'bule': ''  }" @click="rowClick(item,index) ">{{item.note_data.note_text}}</li> -->
-        <li v-if="index % 2 !== 0 " :class="'red'"  @click="rowClick(item,index) "><a href="/pages2" rel="noopener">page2</a>{{item.note_data.note_text}}</li>
+        <li v-if="index % 2 !== 0 " 
+          :class="'red'"  
+          @click="rowClick(item,index) ">
+          <a 
+          href="/pages2" 
+          rel="noopener">page2
+          </a>
+        {{item.note_data.note_text}}
+        </li>
         <li v-else :class="'bule'"  @click="rowClick(item,index) "><a href="/pages2" rel="noopener">page2</a>{{item.note_data.note_text}}</li>      
       </ul>
     </div>
