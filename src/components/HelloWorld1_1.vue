@@ -17,16 +17,8 @@
       v-for = "(item,index) in noteText"
       :key = "index">      
         <!-- <li :class="{ 'red':index % 2 === 0 ? 'red':'','bule':index % 2 !== 0 ? 'bule': ''  }" @click="rowClick(item,index) ">{{item.note_data.note_text}}</li> -->
-        <li v-if="index % 2 !== 0 " 
-          :class="'red'"  
-          @click="rowClick(item,index) ">
-          <a 
-          href="/pages2" 
-          rel="noopener">page2
-          </a>
-        {{item.note_data.note_text}}
-        </li>
-        <li v-else :class="'bule'"  @click="rowClick(item,index) "><a href="/pages2" rel="noopener">page2</a>{{item.note_data.note_text}}</li>      
+        <li v-if="index % 2 !== 0 " :class="'red'"  @click="rowClick(item,index) "><router-link :to="{path: '/pages2',params:{index:index}}"> {{item.note_data.note_text}} </router-link></li>
+        <li v-else :class="'bule'"  @click="rowClick(item,index) "><router-link :to="{path:'/pages3',params:{index:index}}">{{item.note_data.note_text}}</router-link></li>      
       </ul>
     </div>
   </div>
@@ -41,12 +33,8 @@
 </style>
 <script>
 import axios from 'axios'
-import HelloWorld2 from "@/components/HelloWorld2.vue"
 export default {
   name: 'HelloWorld',
-  components: {
-    HelloWorld2
-    },
   data () {
     return {noteText:[]}
   },
@@ -56,7 +44,7 @@ export default {
   methods: {
     async loadData() {
       //http://49.174.84.142:3000/api/user/v1/main/list
-      const data  = await axios.get('http://127.0.0.1:3000/api/user/v1/main/list',{
+      const data  = await axios.get('http://49.174.84.142:3000/api/user/v1/main/list',{
         params : {
           user_no : 17
           }
